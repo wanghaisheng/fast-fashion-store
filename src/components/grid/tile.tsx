@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import Label from '../label';
+import ProductSaleLabel from '../product-sale';
 
 export function GridTileImage({
   isInteractive = true,
@@ -13,6 +14,7 @@ export function GridTileImage({
   label?: {
     title: string;
     amount: string;
+    compareAmount?: string;
     currencyCode: string;
     position?: 'bottom' | 'center';
   };
@@ -28,6 +30,7 @@ export function GridTileImage({
         }
       )}
     >
+      {label && label.compareAmount && Number(label.compareAmount) > 0 && <ProductSaleLabel amount={label.amount} compareAmount={label.compareAmount ?? '0'} />}
       {props.src ? (
         <Image
           className={clsx('relative h-full w-full object-contain', {
@@ -41,6 +44,7 @@ export function GridTileImage({
           title={label.title}
           amount={label.amount}
           currencyCode={label.currencyCode}
+          compareAmount={label.compareAmount}
           position={label.position}
         />
       ) : null}

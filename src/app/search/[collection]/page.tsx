@@ -15,8 +15,16 @@ export async function generateMetadata({
 
   if (!collection) return notFound();
 
+
+  let title = collection.seo.title || collection.title;
+
+  if(title && title.includes('Hidden:')){
+    console.log('Hidden: ', title);
+    title = title.replace('Hidden: ', '');
+  }
+
   return {
-    title: collection.seo?.title || collection.title,
+    title: title,
     description:
       collection.seo?.description || collection.description || `${collection.title} products`
   };

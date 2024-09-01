@@ -385,7 +385,9 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
     }
   });
 
-  return reshapeProduct(res.body.data.product, false);
+  const reshapedProduct = reshapeProduct(res.body.data.product, false);
+
+  return reshapedProduct;
 }
 
 export async function getProductRecommendations(productId: string): Promise<Product[]> {

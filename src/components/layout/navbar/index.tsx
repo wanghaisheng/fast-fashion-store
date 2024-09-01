@@ -6,13 +6,13 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
+import Image from 'next/image';
 
 const { SITE_NAME } = process.env;
 
 export async function Navbar() {
   const menu = await getMenu('main-menu');
 
-  console.log('menu', menu);
   return (
     <nav className="relative flex items-center justify-between p-4 lg:px-6">
       <div className="block flex-none md:hidden">
@@ -20,18 +20,19 @@ export async function Navbar() {
           <MobileMenu menu={menu} />
         </Suspense>
       </div>
-      <div className="flex w-full items-center">
-        <div className="flex w-full md:w-1/3">
+      <div className="flex w-full lg:h-16">
+        <div className="flex w-full ">
+          <div className='flex flex-initial items-center justify-center md:w-auto lg:h-12 md:h-8' >
           <Link
             href="/"
             prefetch={true}
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
-            <LogoSquare />
             <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
+            <Image src = "/logo.svg" alt = "logo" width={100} height={100} className='md:w-16 md:h-16 lg:h-22 lg:w-28' /> 
             </div>
           </Link>
+          </div>
           {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
               {menu.map((item: Menu) => (
@@ -48,12 +49,7 @@ export async function Navbar() {
             </ul>
           ) : null}
         </div>
-        <div className="hidden justify-center md:flex md:w-1/3">
-          <Suspense fallback={<SearchSkeleton />}>
-            <Search />
-          </Suspense>
-        </div>
-        <div className="flex justify-end md:w-1/3">
+        <div className="flex justify-end">
           <CartModal />
         </div>
       </div>
