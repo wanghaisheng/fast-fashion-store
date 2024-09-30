@@ -23,7 +23,7 @@ export function GridTileImage({
     <div className='flex flex-col w-full h-full space-y-3'>
     <div
       className={clsx(
-        'group flex h-full w-full items-center justify-center overflow-hidden rounded-xl  bg-white hover:border-blue-600  hover:border-2 dark:bg-black',
+        'group flex h-full w-full items-center justify-center overflow-hidden   bg-white dark:bg-black',
         {
           relative: label,
           'border-2 border-blue-600': active,
@@ -31,10 +31,9 @@ export function GridTileImage({
         }
       )}
     >
-      {label && label.compareAmount && Number(label.compareAmount) > 0 && <ProductSaleLabel amount={label.amount} compareAmount={label.compareAmount ?? '0'} />}
       {props.src ? (
         <Image
-          className={clsx('relative h-full w-full object-contain', {
+          className={clsx('relative h-full w-full object-cover', {
             'transition duration-300 ease-in-out group-hover:scale-125': isInteractive
           })}
           {...props}
