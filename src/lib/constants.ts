@@ -29,3 +29,11 @@ export const TAGS = {
 export const HIDDEN_PRODUCT_TAG = 'nextjs-frontend-hidden';
 export const DEFAULT_OPTION = 'Default Title';
 export const SHOPIFY_GRAPHQL_API_ENDPOINT = '/api/2023-01/graphql.json';
+
+export const SocialMediaHandles = {
+  facebook: 'https://www.facebook.com',
+  twitter: 'https://www.twitter.com',
+  instagram: 'https://www.instagram.com',
+  pinterest: 'https://www.pinterest.com',
+  youtube: 'https://www.youtube.com'
+};

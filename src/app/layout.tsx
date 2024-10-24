@@ -47,7 +47,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="bg-white text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <CartProvider cartPromise={cart}>
           <div className="lg:h-10 bg-pink-200 text-black items-center justify-center w-full">
-            <p className="p-3 text-center text-sm font-mono">Enjoy FREE SHIPPING on all orders over Rs.1200 | COD Available</p>
+            <p className="p-3 text-center text-sm font-mono">Enjoy FREE SHIPPING on all orders over Rs.499 </p>
           </div>
           <Navbar />
           <main>

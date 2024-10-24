@@ -22,7 +22,7 @@ export async function Navbar() {
         </Suspense>
       </div>
       <div className="flex w-full space-x-5 lg:h-16">
-        <div className="flex space-x-1 w-1/3 ">
+        <div className="flex space-x-1 w-2/3">
           <div className='flex flex-initial items-center justify-center md:w-auto lg:h-12 md:h-8' >
           <Link
             href="/"
@@ -58,7 +58,7 @@ export async function Navbar() {
           </Suspense>
         </div>
         
-        <div className="flex justify-end w-1/3 pr-10">
+        <div className="flex justify-end w-auto pr-10">
           <div className="flex space-x-3 items-center justify-center">
           <CartModal />
           </div>

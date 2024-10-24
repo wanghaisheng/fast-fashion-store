@@ -4,11 +4,12 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { GridTileImage } from '@/components/grid/tile';
 import { useProduct, useUpdateURL } from '@/components/product/product-context';
 import Image from 'next/image';
+import React, { useState } from 'react';
 
 export function Gallery({ images }: { images: { src: string; altText: string }[] }) {
   const { state, updateImage } = useProduct();
   const updateURL = useUpdateURL();
-  const imageIndex = state.image ? parseInt(state.image) : 0;
+ const [imageIndex,setImageIndex] = useState(0);
 
   const nextImageIndex = imageIndex + 1 < images.length ? imageIndex + 1 : 0;
   const previousImageIndex = imageIndex === 0 ? images.length - 1 : imageIndex - 1;
@@ -68,8 +69,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
               <li key={image.src} className="h-20 w-20">
                 <button
                   formAction={() => {
-                    const newState = updateImage(index.toString());
-                    updateURL(newState);
+                    setImageIndex(index);
                   }}
                   aria-label="Select product image"
                   className="h-full w-full"
