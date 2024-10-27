@@ -49,13 +49,10 @@ function SignUpAndSaveContent() {
 function SocailMediaHandles() {
     return (
         <div className="flex flex-row space-x-5">
-            <Link href={SocialMediaHandles.instagram}>
+            <Link href={SocialMediaHandles.instagram} target="_blank" rel="noreferrer">
                 <InstagramLogoIcon className="w-8 h-8"/>
             </Link>
-            <Link href={SocialMediaHandles.facebook}>
-                <Facebook className="w-8 h-8"/>
-            </Link>
-            <Link href={SocialMediaHandles.youtube}>
+            <Link href={SocialMediaHandles.youtube} target="_blank" rel="noreferrer">
                 <Youtube className="w-8 h-8"/>
             </Link>
         </div>
